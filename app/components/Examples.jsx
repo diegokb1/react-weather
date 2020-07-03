@@ -8,7 +8,7 @@ const Examples = () => {
       <p>Here are a few examples locations to try out:</p>
       <ol>
         <li>
-          <Link to="/?location=Alaska">Alaska, AK</Link>
+          <Link to="/?location=Anchorage">Anchorage, AK</Link>
         </li>
         <li>
           <Link to="/?location=Montevideo">Montevideo, Uruguay</Link>

@@ -11,10 +11,29 @@ const Weather = React.createClass({
       errorMessage: undefined,
     }
   },
+  componentDidMount: function () {
+    const location = this.props.location.query.location;
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = '#/';
+    }
+  },
+  componentWillReceiveProps: function (newProps) {
+    const location = newProps.location.query.location;
+    if (location && location.length > 0) {
+      this.handleSearch(location);
+      window.location.hash = '#/';
+    }
+  },
   handleSearch: function (location) {
     const me = this;
 
-    this.setState({ isLoading: true, errorMessage: undefined });
+    this.setState({
+      isLoading: true,
+      errorMessage: undefined,
+      temp: undefined,
+      location: undefined
+    });
 
     weatherApi.getTemp(location).then(temp => {
       me.setState({ location, temp, isLoading: false });
